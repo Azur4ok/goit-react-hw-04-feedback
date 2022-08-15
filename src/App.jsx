@@ -11,12 +11,12 @@ export const App = () => {
   const [feedback, setFeedback] = React.useState({
     good: 0,
     neutral: 0,
-    bad: 0
-  })
+    bad: 0,
+  });
 
   const handleClickButton = e => {
     const option = e.target.textContent;
-    setFeedback( ({...feedback, [option]: feedback[option] + 1 }));
+    setFeedback({ ...feedback, [option]: feedback[option] + 1 });
   };
 
   const countTotalFeedback = () => {
@@ -31,7 +31,7 @@ export const App = () => {
   };
 
   const options = Object.keys(feedback);
-  const total = countTotalFeedback()
+  const total = countTotalFeedback();
   const positivePercentage = countPositiveFeedbackPercentage();
 
   return (
@@ -40,7 +40,7 @@ export const App = () => {
         <FeedbackOptions
           options={options}
           onLeaveFeedback={handleClickButton}
-        ></FeedbackOptions>
+        />
       </Section>
       <Section title="Statistics">
         {total ? (
@@ -52,7 +52,7 @@ export const App = () => {
             positivePercentage={positivePercentage}
           />
         ) : (
-          <Notification message="There is no feedback"></Notification>
+          <Notification message="There is no feedback" />
         )}
       </Section>
     </div>
